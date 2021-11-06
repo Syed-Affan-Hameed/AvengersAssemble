@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 
 class LoginActivity : AppCompatActivity()  {
@@ -17,27 +18,31 @@ class LoginActivity : AppCompatActivity()  {
     val validmobilenum= arrayListOf<String>("1127878221","112121221","1121214544","3321214544","3329921454","3327714544")
     val validpass= arrayListOf<String>("tonystark","capstark","romanoff","iamangry","hawkeye","jane")
     var avengerName= arrayOf("Iron Man","Captain America","Black Widow","Gladiator Hulk","HawkEye Ronin","Thor Odinson")
-    var LoginStatus=false
+
     lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        sharedPreferences=getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
+        val LoginStatus=sharedPreferences.getBoolean("LoginStatus",false)
+        if(LoginStatus){
+            val intent=Intent(this@LoginActivity,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
+
+
+
         title = "Log in to Avengers Dashboard"
-        imgavengerlogo = findViewById(R.id.imgavengerlogo)
+       // imgavengerlogo = findViewById(R.id.imgavengerlogo)
         etmobilenum = findViewById(R.id.etmobilenum)
         etpass = findViewById(R.id.etpass)
         btnlogin = findViewById(R.id.btnlogin)
         txtforgot = findViewById(R.id.txtforgot)
         txtreg = findViewById(R.id.txtreg)
-        sharedPreferences=getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
 
-        if(LoginStatus){
-            val intent=Intent(this@LoginActivity,MainActivity::class.java)
-            startActivity(intent)
-        }
-        else{
-            setContentView(R.layout.activity_login)
-        }
         btnlogin.setOnClickListener{
 
             var mob=etmobilenum.text.toString()
@@ -48,7 +53,8 @@ class LoginActivity : AppCompatActivity()  {
             {
                 for(i in 0 until validpass.size){
                     if(pass==validpass[i]){
-                        savepreferences()
+
+                        savepreferences(avengerName[i])
                         intent.putExtra("Name",avengerName[i])
                         startActivity(intent)
                         finish()
@@ -66,8 +72,9 @@ class LoginActivity : AppCompatActivity()  {
 
     }
 
- fun savepreferences(){
+ fun savepreferences(title:String){
      sharedPreferences.edit().putBoolean("LoginStatus",true).apply()
+     sharedPreferences.edit().putString("Avenger",title).apply()
  }
 
 

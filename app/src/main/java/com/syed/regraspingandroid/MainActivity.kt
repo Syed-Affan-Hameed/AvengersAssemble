@@ -1,19 +1,24 @@
 package com.syed.regraspingandroid
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
      var avengerTitle:String?="Default User"
+     lateinit var sharedPreferences:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences=getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
         println("The onCreate() callback method is called")
         setContentView(R.layout.scroll_view)
-
-        if(intent!=null){
-            title=intent.getStringExtra("Name")
-        }
+        avengerTitle=sharedPreferences.getString("Avenger","Default User")
+//        if(intent!=null){
+//            title=intent.getStringExtra("Name")
+//        }
+        title=avengerTitle
 
 
     }
