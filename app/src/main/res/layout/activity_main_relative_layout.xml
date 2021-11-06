@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cant believe i am learning this again"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"/>
+    <TextView
+        android:id="@+id/txtdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am team Iron Man"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_below="@+id/txtheader"/>
+    <ImageView
+        android:id="@+id/imgtony_pic"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/tony_stark"
+        android:layout_below="@+id/txtdesc"/>
+    <Button
+        android:id="@+id/btnclickhere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Click this button again"
+        android:textSize="18sp"
+        android:background="@color/teal_200"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"/>
+    <EditText
+        android:id="@+id/etjusttext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/imgtony_pic"
+        />
+</RelativeLayout>

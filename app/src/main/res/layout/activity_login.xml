@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".LoginActivity">
+    
+    <ImageView
+        android:id="@+id/imgavengerlogo"
+        android:layout_width="250dp"
+        android:layout_height="170dp"
+        android:src="@drawable/avnegers_logo"
+        android:layout_centerHorizontal="true"
+        />
+    <EditText
+        android:id="@+id/etmobilenum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Mobile Number"
+        android:layout_below="@id/imgavengerlogo"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:maxLength="10"
+        android:layout_margin="15dp"
+        android:padding="6dp"/>
+    <EditText
+        android:id="@+id/etpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Password"
+        android:layout_below="@id/etmobilenum"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:maxLength="20"
+        android:padding="6dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etpass"
+        android:background="#880f49"
+        android:id="@+id/btnlogin"
+        android:text="LOG IN"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"/>
+    <TextView
+        android:id="@+id/txtforgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:layout_below="@+id/btnlogin"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/txtreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an Account"
+        android:layout_alignParentBottom="true"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
+
+
+</RelativeLayout>
